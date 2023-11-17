@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import CharacterCard from './CharacterCard';
 import { shuffleArray } from '../utils/utils';
@@ -28,7 +29,7 @@ function CardGame({ handleScoreUpdate, handleScoreReset, reset, setReset }) {
   return (
     <div>
       {data ? (
-        <div>
+        <div className="gameDisplay">
           {data.map((character) => (
             <CharacterCard
               shuffleCards={shuffleCards}
