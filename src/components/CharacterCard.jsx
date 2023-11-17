@@ -1,16 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function CharacterCard({ name, url, handleCardClick, handleScoreReset }) {
+function CharacterCard({
+  name,
+  url,
+  reset,
+  setReset,
+  shuffleCards,
+  handleScoreReset,
+  handleScoreUpdate,
+}) {
+  // Checks if card was clicked before
   const [clicked, setClicked] = useState(false);
+  useEffect(() => {
+    if (reset) {
+      setClicked(false);
+      setReset(false);
+    }
+  }, [reset, setReset]);
   return (
     <div
       className="card"
       onClick={() => {
         if (!clicked) {
-          handleCardClick();
+          shuffleCards();
+          handleScoreUpdate();
           setClicked(true);
         } else {
           handleScoreReset();
+          shuffleCards();
         }
       }}
     >
