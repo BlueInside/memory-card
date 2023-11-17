@@ -6,6 +6,8 @@ import { useState } from 'react';
 function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [reset, setReset] = useState(false);
+
   function handleScoreUpdate() {
     setScore((prevScore) => prevScore + 1);
 
@@ -16,6 +18,7 @@ function App() {
 
   function handleScoreReset() {
     setScore(0);
+    setReset(true);
   }
 
   return (
@@ -26,6 +29,8 @@ function App() {
       <CardGame
         handleScoreUpdate={handleScoreUpdate}
         handleScoreReset={handleScoreReset}
+        reset={reset}
+        setReset={setReset}
       />
     </>
   );
