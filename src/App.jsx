@@ -2,7 +2,8 @@ import Title from './components/Title';
 import ScoreBoard from './components/ScoreBoard';
 import CardGame from './components/CardGame';
 import { useState } from 'react';
-
+import './styles/reset.css';
+import './styles/styles.css';
 function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
