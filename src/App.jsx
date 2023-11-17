@@ -23,7 +23,10 @@ function App() {
       <Title>
         <ScoreBoard score={score} bestScore={bestScore} />
       </Title>
-      <CardGame handleScoreUpdate={handleScoreUpdate} />
+      <CardGame
+        handleScoreUpdate={handleScoreUpdate}
+        handleScoreReset={handleScoreReset}
+      />
     </>
   );
 }
