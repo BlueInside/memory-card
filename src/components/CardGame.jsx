@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import CharacterCard from './CharacterCard';
 import { shuffleArray } from '../utils/utils';
-function CardGame({ handleScoreUpdate, handleScoreReset }) {
+function CardGame({ handleScoreUpdate, handleScoreReset, reset, setReset }) {
   const [data, setData] = useState('');
 
   // Fetches data with Rick Morty Characters
   useEffect(() => {
-    console.log('effect');
     fetch(
       'https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12', // Ids of characters to fetch
       {}
@@ -18,9 +17,12 @@ function CardGame({ handleScoreUpdate, handleScoreReset }) {
       .catch((error) => console.log('Error', error));
   }, []);
 
-  function handleCardClick() {
-    handleScoreUpdate();
+  // Handles user click on the card
+  function shuffleCards() {
+    // Shuffles cards
     const shuffledArray = shuffleArray(data);
+
+    // Uses shuffled array
     setData(shuffledArray);
   }
   return (
@@ -29,11 +31,14 @@ function CardGame({ handleScoreUpdate, handleScoreReset }) {
         <div>
           {data.map((character) => (
             <CharacterCard
-              handleCardClick={handleCardClick}
+              shuffleCards={shuffleCards}
               handleScoreReset={handleScoreReset}
+              handleScoreUpdate={handleScoreUpdate}
               key={character.id}
               name={character.name}
               url={character.image}
+              reset={reset}
+              setReset={setReset}
             />
           ))}
         </div>
