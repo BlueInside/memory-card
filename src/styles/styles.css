@@ -1,0 +1,43 @@
+body {
+  margin: 0.5rem;
+  background-color: #2d3b44;
+  color: #ffd700;
+}
+
+h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+}
+
+.titleAndScore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  min-width: max-content;
+}
+
+.instruction {
+  margin: 1rem;
+}
+.gameDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.card {
+  background-color: #e74c3c;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 0.3rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 30px 5px;
+}
