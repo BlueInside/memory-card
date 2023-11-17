@@ -1,10 +1,8 @@
-import ScoreBoard from './ScoreBoard';
-
-function Title() {
+function Title({ children }) {
   return (
     <header>
       <h1>Rick & Morty Memory Game</h1>
-      <ScoreBoard />
+      {children}
       <p className="instruction">
         Get points by clicking on an image but don&apos;t click on any more than
         once!

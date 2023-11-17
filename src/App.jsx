@@ -1,7 +1,29 @@
-// import CharacterDisplay from './components/CharacterDisplay';
+import Title from './components/Title';
+import ScoreBoard from './components/ScoreBoard';
+import { useState } from 'react';
 
 function App() {
-  return <></>;
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  function handleScoreUpdate() {
+    setScore((prevScore) => prevScore + 1);
+
+    if (score + 1 > bestScore) {
+      setBestScore((prevBestScore) => prevBestScore + 1);
+    }
+  }
+
+  function handleScoreReset() {
+    setScore(0);
+  }
+
+  return (
+    <>
+      <Title>
+        <ScoreBoard score={score} bestScore={bestScore} />
+      </Title>
+    </>
+  );
 }
 
 export default App;
