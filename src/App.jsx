@@ -1,5 +1,6 @@
 import Title from './components/Title';
 import ScoreBoard from './components/ScoreBoard';
+import CardGame from './components/CardGame';
 import { useState } from 'react';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Title>
         <ScoreBoard score={score} bestScore={bestScore} />
       </Title>
+      <CardGame />
     </>
   );
 }
