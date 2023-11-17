@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function CharacterCard({ name, url, handleCardClick, handleResetScore }) {
+function CharacterCard({ name, url, handleCardClick, handleScoreReset }) {
   const [clicked, setClicked] = useState(false);
   return (
     <div
@@ -9,7 +9,9 @@ function CharacterCard({ name, url, handleCardClick, handleResetScore }) {
         if (!clicked) {
           handleCardClick();
           setClicked(true);
-        } else console.log('resetTheScore');
+        } else {
+          handleScoreReset();
+        }
       }}
     >
       <img className="cardImage" src={url} alt={name} />
